@@ -10,7 +10,7 @@ class Slot:
         self.isOccupied = False
 
     def check_occupied(self, car_center: Point) -> bool:
-        self.isOccupied = self.upper_left.x <= car_center.x < self.lower_right.x \
+        return self.upper_left.x <= car_center.x < self.lower_right.x \
                and self.upper_left.y <= car_center.y < self.lower_right.y
-
-        return self.isOccupied
+        #
+        # return self.isOccupied

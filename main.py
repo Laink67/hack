@@ -30,8 +30,8 @@ def print_hi(name):
                   Car(Point(383, 17), Point(416, 34)),
                   Car(Point(218, 60), Point(265, 100))]
 
-    parking = Parking(id=1, img_path="parking.jpg", rows=2, columns=10)
-
+    parking = Parking(id=1, img_path="parking.jpg", rows=2, columns=9)
+    parking.draw_transformed_img()
     print(f'Occupied slots: {parking.get_slots_occupied(box_points)}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 

@@ -66,17 +66,24 @@ class Parking:
 
         slots_occupied = []
 
-        # for slot in slots:
-        #     for center in transformed_centers:
-        #         if slot.check_occupied(center):
-        #             slots_occupied.append(True)
-        #             break
-        #         else:
-        #             slots_occupied.append(False)
-
         for slot in slots:
-            res = [slot.check_occupied(center) for center in transformed_centers]
-            print(res)
+            res = False
+            for center in transformed_centers:
+                res |= slot.check_occupied(center)
+
             slots_occupied.append(res)
+            slot.isOccupied = res
 
         return slots_occupied
+
+    def draw_transformed_img(self):
+        # do perspective transformation setting area outside input to black
+        imgOutput = cv2.warpPerspective(self.img, self.matrix, (self.width, self.height), cv2.INTER_LINEAR,
+                                        borderMode=cv2.BORDER_CONSTANT,
+                                        borderValue=(0, 0, 0))
+
+        # save the warped output
+        cv2.imwrite('parking_warped.jpg', imgOutput)
+
+
+

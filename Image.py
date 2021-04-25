@@ -86,7 +86,6 @@ print(cv2.perspectiveTransform(pts, matrix)[0][0][0])
 # do perspective transformation setting area outside input to black
 imgOutput = cv2.warpPerspective(img, matrix, (width, height), cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT,
                                 borderValue=(0, 0, 0))
-# print(imgOutput.shape)
 
 # save the warped output
 cv2.imwrite("parking_warped.jpg", imgOutput)
